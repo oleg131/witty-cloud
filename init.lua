@@ -29,7 +29,7 @@ print('Chip ID: ', node.chipid())
 print('Heap Size: ', node.heap(), '\n')
 
 -- Configure WiFi
-wifi.sta.config(ssid, pass)
+wifi.sta.config(SSID, PASS)
 
 ----------------------------------
 -- WiFi Connection Verification --
@@ -69,7 +69,7 @@ srv = net.createServer(net.TCP, 10)
 
 srv:listen(80, function(conn)
 	conn:on("receive", function(conn, payload)
-    conn:send(adc.read(adc_id))
+    conn:send(adc.read(ADC_PIN))
     conn:on("sent", function(conn) conn:close() end)
 	end)
 end)
